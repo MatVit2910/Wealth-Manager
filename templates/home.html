@@ -1,3 +1,43 @@
-{% extends "navbar.html" %}
-{% block content %}
-{% endblock content%}
+{% extends "navbar.html" %} {% block content %}
+<div class="container-fluid mt-2">
+  <div class="row vh-100">
+    <div class="col-7">
+      <h3 class="m-1 mt-3 mb-2">My Portfolio</h3>
+      <div
+        style="
+          height: 85%;
+          background-color: #ffffff;
+          border-radius: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        hello
+      </div>
+    </div>
+    <div class="col-5">
+      <h3 class="m-1 mt-3 mb-2">Spending</h3>
+      <div
+        style="
+          height: 85%;
+          background-color: #ffffff;
+          border-radius: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        hello
+      </div>
+    </div>
+  </div>
+  <div class="row vh-100">
+    <div class="col bg-primary text-white">60% (approx.)</div>
+  </div>
+</div>
+<script>
+  document.getElementById("welcome-message").innerText =
+    "Welcome back, {{name}}!";
+</script>
+{% endblock content %}
