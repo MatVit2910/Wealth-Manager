@@ -1,7 +1,7 @@
 {% extends "navbar.html" %} {% block content %}
-<div class="container-fluid mt-2">
-  <div class="row vh-100">
-    <div class="col-7">
+<div class="container mt-2">
+  <div class="row">
+    <div class="col col-lg-7">
       <h3 class="m-1 mt-3 mb-2">My Portfolio</h3>
       <div
         style="
@@ -66,7 +66,7 @@
         </div>
       </div>
     </div>
-    <div class="col-5">
+    <div class="col col-lg-5">
       <h3 class="m-1 mt-3 mb-2">Spending</h3>
       <div
         style="
@@ -137,7 +137,7 @@
       </div>
     </div>
   </div>
-  <div class="row vh-100">
+  <div class="row">
     <div class="col">
       <h3 class="m-1">Tips</h3>
       <div
@@ -151,7 +151,7 @@
           padding: 30px;
         "
       >
-        <div class="comtainer h-100 w-100" style="padding: 10px">
+        <div class="comtainer w-100" style="padding: 10px;">
           <div class="row">
             <div class="col fs-4" style="display: flex; align-items: center">
               Minimum IRA Contribution
@@ -174,10 +174,10 @@
               $2,000
             </div>
           </div>
-          <div class="row mt-4 h-75">
+          <div class="row">
             <div class="col">
               <div
-                class="h-100 pr-10"
+                class="pr-10 container"
                 style="
                   background-color: #f5f5f5;
                   border-radius: 15px;
@@ -192,23 +192,47 @@
                 </div>
                 <div class="container">
                   <div class="row">
-                    <div class="col-1">
+                    <div class="col-1 d-none d-lg-flex">
                       <p
-                        class="rounded-circle fs-1"
+                        class="rounded-circle fs-2 d-flex"
                         style="
                           background-color: #005a83;
-                          width: 70px;
-                          height: 70px;
+                          width: 60px;
+                          height: 60px;
                           justify-content: center;
                           align-items: center;
-                          display: flex;
                         "
                       >
                         🐷
                       </p>
                     </div>
-                    <div class="col rounded" style="background-color: #DAF3FF; height: auto;">
-                      I will give you recommendations on how to save money and invest wisely!
+                    <div
+                      class="col rounded p-2 overflow-y-auto"
+                      style="background-color: #daf3ff; height: auto; max-height: 200px;"
+                    >
+                      I will give you recommendations on how to save money and
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                      invest wisely!<br>
+                     
+
                     </div>
                   </div>
                 </div>
@@ -301,7 +325,7 @@
           portfolioTableBody.appendChild(row);
         });
       </script>
-      {% endblock content %}
     </div>
   </div>
 </div>
+{% endblock content %}
