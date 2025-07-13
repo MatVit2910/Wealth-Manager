@@ -11,9 +11,59 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          padding: 30px;
         "
       >
-        hello
+        <div class="container h-100">
+          <div class="row">
+            <div
+              class="col fs-4"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              GRAPH GOES HERE
+            </div>
+          </div>
+          <div class="row">
+            <div class="col fs-4" style="display: flex; align-items: center">
+              Summary
+            </div>
+          </div>
+          <div class="row" style="max-height: 230px; overflow-y: auto">
+            <div class="col fs-4" style="display: flex; align-items: center">
+              <table
+                class="table table-bordered table-hover"
+                id="portfolio-table"
+              >
+                <thead>
+                  <tr>
+                    <th class="text-white" style="background-color: #32746d">
+                      Symbol
+                    </th>
+                    <th class="text-white" style="background-color: #32746d">
+                      Price
+                    </th>
+                    <th class="text-white" style="background-color: #32746d">
+                      Change (%)
+                    </th>
+                    <th class="text-white" style="background-color: #32746d">
+                      Currency
+                    </th>
+                    <th class="text-white" style="background-color: #32746d">
+                      Shares
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Portfolio rows will be dynamically inserted here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-5">
@@ -26,18 +76,232 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          padding: 30px;
         "
       >
-        hello
+        <div class="container h-100">
+          <div class="row">
+            <div class="col fs-4" style="display: flex; align-items: center">
+              Cash
+            </div>
+            <div
+              class="col fs-4"
+              style="display: flex; align-items: center; justify-content: right"
+            >
+              $100
+            </div>
+          </div>
+          <div class="row">
+            <div class="col fs-4" style="display: flex; align-items: center">
+              Money In
+            </div>
+            <div
+              class="col fs-4"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: right;
+                color: #008b2e;
+              "
+            >
+              $100
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col fs-4" style="display: flex; align-items: center">
+              Money Out
+            </div>
+            <div
+              class="col fs-4"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: right;
+                color: #de0101;
+              "
+            >
+              $100
+            </div>
+          </div>
+          <div class="row">
+            <div class="col fs-4" style="display: flex; align-items: center">
+              Recent Transactions
+            </div>
+          </div>
+          <div class="row overflow-y-auto" style="max-height: 280px">
+            <div id="transactions">
+              <!-- Transaction entries will be dynamically inserted here -->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="row vh-100">
-    <div class="col bg-primary text-white">60% (approx.)</div>
+    <div class="col">
+      <h3 class="m-1">Tips</h3>
+      <div
+        style="
+          height: 85%;
+          background-color: #ffffff;
+          border-radius: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 30px;
+        "
+      >
+        <div class="comtainer h-100 w-100" style="padding: 10px">
+          <div class="row">
+            <div class="col fs-4" style="display: flex; align-items: center">
+              Minimum IRA Contribution
+            </div>
+            <div
+              class="col fs-4"
+              style="display: flex; align-items: center; justify-content: right"
+            >
+              $6,500
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col fs-4" style="display: flex; align-items: center">
+              2025 Contributions
+            </div>
+            <div
+              class="col fs-4"
+              style="display: flex; align-items: center; justify-content: right"
+            >
+              $2,000
+            </div>
+          </div>
+          <div class="row mt-4 h-75">
+            <div class="col">
+              <div
+                class="h-100 pr-10"
+                style="
+                  background-color: #f5f5f5;
+                  border-radius: 15px;
+                  padding: 15px;
+                "
+              >
+                <div
+                  class="col fs-4"
+                  style="display: flex; align-items: center; padding-left: 10px"
+                >
+                  Recommendations
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-1">
+                      <p
+                        class="rounded-circle fs-1"
+                        style="
+                          background-color: #005a83;
+                          width: 70px;
+                          height: 70px;
+                          justify-content: center;
+                          align-items: center;
+                          display: flex;
+                        "
+                      >
+                        🐷
+                      </p>
+                    </div>
+                    <div class="col rounded" style="background-color: #DAF3FF; height: auto;">
+                      I will give you recommendations on how to save money and invest wisely!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        document.getElementById("welcome-message").innerText =
+          "Welcome back, {{name}}!";
+
+        const transactions = [
+          { description: "Spenditure at Walmart", amount: 50 },
+          { description: "Coffee at Starbucks", amount: 5 },
+          { description: "Groceries at Target", amount: 30 },
+          { description: "Dinner at Olive Garden", amount: 40 },
+          { description: "Gas Station", amount: 60 },
+          { description: "Costco", amount: 103 },
+          { description: "Costco", amount: 103 },
+        ];
+
+        const container = document.getElementById("transactions");
+        transactions.forEach((tx) => {
+          const div = document.createElement("div");
+          div.className = "col fs-4 rounded mb-2 transaction-entry";
+          div.style =
+            "display: flex; align-items: center; background-color: #104F55; color:white; padding-left: 20px";
+          div.textContent = `${tx.description} - $${tx.amount}`;
+          container.appendChild(div);
+        });
+
+        const portfolio = [
+          {
+            symbol: "AAPL",
+            price: 180.12,
+            change: "+1.25%",
+            currency: "USD",
+            shares: 10,
+          },
+          {
+            symbol: "GOOGL",
+            price: 2850.5,
+            change: "-0.75%",
+            currency: "USD",
+            shares: 5,
+          },
+          {
+            symbol: "TSLA",
+            price: 720.3,
+            change: "+2.10%",
+            currency: "USD",
+            shares: 8,
+          },
+          {
+            symbol: "TSLA",
+            price: 720.3,
+            change: "+2.10%",
+            currency: "USD",
+            shares: 8,
+          },
+          {
+            symbol: "TSLA",
+            price: 720.3,
+            change: "+2.10%",
+            currency: "USD",
+            shares: 8,
+          },
+          {
+            symbol: "TSLA",
+            price: 720.3,
+            change: "+2.10%",
+            currency: "USD",
+            shares: 8,
+          },
+        ];
+
+        const portfolioTableBody = document.querySelector(
+          "#portfolio-table tbody"
+        );
+        portfolio.forEach((stock) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+                    <td>${stock.symbol}</td>
+                    <td>$${stock.price.toLocaleString()}</td>
+                    <td>${stock.change}</td>
+                    <td>${stock.currency}</td>
+                    <td>${stock.shares}</td>
+                  `;
+          portfolioTableBody.appendChild(row);
+        });
+      </script>
+      {% endblock content %}
+    </div>
   </div>
 </div>
-<script>
-  document.getElementById("welcome-message").innerText =
-    "Welcome back, {{name}}!";
-</script>
-{% endblock content %}

@@ -13,3 +13,7 @@
   color: #9ec5ab !important;
   font-size: 22px !important;
 }
+
+.transaction-entry:hover{
+  background-color: #072d31 !important;
+}
