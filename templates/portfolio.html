@@ -1,22 +1,87 @@
-{% extends "navbar.html" %} 
-{% block content %}
-<div class="container">
-  <!-- Row 1 -->
-  <div class="row mb-3">
-    <div class="col-12 col-md-7">Row 1 - 60%</div>
-    <div class="col-12 col-md-5">Row 1 - 40%</div>
+{% extends "navbar.html" %} {% block content %}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col">
+      <h3 class="m-1 mt-3 mb-2">My Portfolio</h3>
+      <div
+        style="
+          height: 85%;
+          background-color: #ffffff;
+          border-radius: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 30px;
+        "
+      >
+        <div class="container h-100">
+          <div class="row">
+            <div
+              class="col fs-4"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              GRAPH GOES HERE
+            </div>
+          </div>
+          <div class="row">
+            <div class="col fs-4" style="display: flex; align-items: center">
+              Summary
+            </div>
+          </div>
+          <div class="row" style="max-height: 230px; overflow-y: auto">
+            <div class="col fs-4" style="display: flex; align-items: center">
+              <table
+                class="table table-bordered table-hover"
+                id="portfolio-table"
+              >
+                <thead>
+                  <tr>
+                    <th class="text-white" style="background-color: #32746d">
+                      Symbol
+                    </th>
+                    <th class="text-white" style="background-color: #32746d">
+                      Price
+                    </th>
+                    <th class="text-white" style="background-color: #32746d">
+                      Change (%)
+                    </th>
+                    <th class="text-white" style="background-color: #32746d">
+                      Currency
+                    </th>
+                    <th class="text-white" style="background-color: #32746d">
+                      Shares
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for stock in stocks %}
+                  <tr>
+                  <td>{{stock.symbol}}</td>
+                  <td>{{stock.price}}</td>
+                  <td>{{stock.change}}</td>
+                  <td>${{stock.currency}}</td>
+                  <td>${{stock.shares}}</td>
+                  </tr>
+                  {% else %}
+                  <tr>
+                  <td>N/A</td>
+                  <td>N/A</td>
+                  <td>N/A</td>
+                  <td>N/A</td>
+                  <td>N/A</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <!-- Row 2 -->
-  <div class="row mb-3">
-    <div class="col-12 col-md-7">Row 2 - 60%</div>
-    <div class="col-12 col-md-5">Row 2 - 40%</div>
-  </div>
-
-  <!-- Row 3 -->
-  <div class="row mb-3">
-    <div class="col-12 col-md-7">Row 3 - 60%</div>
-    <div class="col-12 col-md-5">Row 3 - 40%</div>
-  </div>
+  {% endblock content %}
 </div>
-{% endblock content %}

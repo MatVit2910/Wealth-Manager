@@ -58,7 +58,23 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- Portfolio rows will be dynamically inserted here -->
+                  {% for stock in stocks %}
+                  <tr>
+                    <td>{{stock.symbol}}</td>
+                    <td>{{stock.price}}</td>
+                    <td>{{stock.change}}</td>
+                    <td>${{stock.currency}}</td>
+                    <td>${{stock.shares}}</td>
+                  </tr>
+                  {% else %}
+                  <tr>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                  </tr>
+                  {% endfor %}
                 </tbody>
               </table>
             </div>
@@ -129,8 +145,14 @@
             </div>
           </div>
           <div class="row overflow-y-auto" style="max-height: 280px">
-            <div id="transactions">
-              <!-- Transaction entries will be dynamically inserted here -->
+            <div>
+              {% for transaction in transactions %}
+              <div class="col fs-4 rounded mb-2 transaction-entry" style="display: flex; align-items: center; background-color: #104F55; color:white; padding-left: 20px">
+              {{transaction.description}} - {{transaction.amount}}
+              </div>
+              {% else %}
+              <div class="fs-6 bold mt-2" style="align-items: center; justify-content: center; color: #989898;">No recent transactions</div>
+              {% endfor %}
             </div>
           </div>
         </div>
@@ -151,7 +173,7 @@
           padding: 30px;
         "
       >
-        <div class="comtainer w-100" style="padding: 10px;">
+        <div class="comtainer w-100" style="padding: 10px">
           <div class="row">
             <div class="col fs-4" style="display: flex; align-items: center">
               Minimum IRA Contribution
@@ -208,31 +230,33 @@
                     </div>
                     <div
                       class="col rounded p-2 overflow-y-auto"
-                      style="background-color: #daf3ff; height: auto; max-height: 200px;"
+                      style="
+                        background-color: #daf3ff;
+                        height: auto;
+                        max-height: 200px;
+                      "
                     >
                       I will give you recommendations on how to save money and
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                      invest wisely!<br>
-                     
-
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
+                      invest wisely!<br />
                     </div>
                   </div>
                 </div>
@@ -241,90 +265,6 @@
           </div>
         </div>
       </div>
-      <script>
-        document.getElementById("welcome-message").innerText =
-          "Welcome back, {{name}}!";
-
-        const transactions = [
-          { description: "Spenditure at Walmart", amount: 50 },
-          { description: "Coffee at Starbucks", amount: 5 },
-          { description: "Groceries at Target", amount: 30 },
-          { description: "Dinner at Olive Garden", amount: 40 },
-          { description: "Gas Station", amount: 60 },
-          { description: "Costco", amount: 103 },
-          { description: "Costco", amount: 103 },
-        ];
-
-        const container = document.getElementById("transactions");
-        transactions.forEach((tx) => {
-          const div = document.createElement("div");
-          div.className = "col fs-4 rounded mb-2 transaction-entry";
-          div.style =
-            "display: flex; align-items: center; background-color: #104F55; color:white; padding-left: 20px";
-          div.textContent = `${tx.description} - $${tx.amount}`;
-          container.appendChild(div);
-        });
-
-        const portfolio = [
-          {
-            symbol: "AAPL",
-            price: 180.12,
-            change: "+1.25%",
-            currency: "USD",
-            shares: 10,
-          },
-          {
-            symbol: "GOOGL",
-            price: 2850.5,
-            change: "-0.75%",
-            currency: "USD",
-            shares: 5,
-          },
-          {
-            symbol: "TSLA",
-            price: 720.3,
-            change: "+2.10%",
-            currency: "USD",
-            shares: 8,
-          },
-          {
-            symbol: "TSLA",
-            price: 720.3,
-            change: "+2.10%",
-            currency: "USD",
-            shares: 8,
-          },
-          {
-            symbol: "TSLA",
-            price: 720.3,
-            change: "+2.10%",
-            currency: "USD",
-            shares: 8,
-          },
-          {
-            symbol: "TSLA",
-            price: 720.3,
-            change: "+2.10%",
-            currency: "USD",
-            shares: 8,
-          },
-        ];
-
-        const portfolioTableBody = document.querySelector(
-          "#portfolio-table tbody"
-        );
-        portfolio.forEach((stock) => {
-          const row = document.createElement("tr");
-          row.innerHTML = `
-                    <td>${stock.symbol}</td>
-                    <td>$${stock.price.toLocaleString()}</td>
-                    <td>${stock.change}</td>
-                    <td>${stock.currency}</td>
-                    <td>${stock.shares}</td>
-                  `;
-          portfolioTableBody.appendChild(row);
-        });
-      </script>
     </div>
   </div>
 </div>
