@@ -15,20 +15,20 @@
       rel="stylesheet"
     />
   </head>
-  <body style="background-color: #E9E9E9;">
+  <body>
     <nav
       class="navbar sticky-top navbar-expand-lg"
-      style="background-color: #104f55"
     >
       <div class="container-fluid">
-        <img
-          src="{{ url_for('static', filename='images/logo.png') }}"
-          alt="Logo"
-          height="80px"
-          width="100px"
-          style="margin-left: 10px; margin-right: 20px"
-        />
-        <h2 id="welcome-message" class="text-white">Welcome back, {{name}}!</h2>
+        <div class="logo-container">
+          <img
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="Logo"
+            height="50px"
+            width="60px"
+          />
+        </div>
+        <h2 id="welcome-message" class="text-white ms-3">Welcome back, {{name}}!</h2>
         <button
           class="navbar-toggler"
           type="button"
@@ -43,9 +43,8 @@
         <div
           class="collapse navbar-collapse"
           id="navbarNavAltMarkup"
-          style="margin-right: 30px"
         >
-          <div class="navbar-nav ms-auto" style="display: flex">
+          <div class="navbar-nav ms-auto">
             <a class="nav-link text-white" href="/">Summary</a>
             <a class="nav-link text-white" href="/portfolio">Portfolio</a>
             <a class="nav-link text-white" href="#">Budget</a>

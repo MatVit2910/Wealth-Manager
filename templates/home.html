@@ -2,59 +2,29 @@
 <div class="container mt-2">
   <div class="row">
     <div class="col col-lg-7">
-      <h3 class="m-1 mt-3 mb-2">My Portfolio</h3>
-      <div
-        style="
-          height: 85%;
-          background-color: #ffffff;
-          border-radius: 30px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 30px;
-        "
-      >
-        <div class="container h-100">
+      <h3 class="m-1 mt-3 mb-2 text-white" style="font-weight: bold;">My Portfolio</h3>
+      <div class="content-card" style="display: flex; align-items: center; justify-content: center; padding: 30px;">
+        <div class="container">
           <div class="row">
-            <div
-              class="col fs-4"
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              "
-            >
-              GRAPH GOES HERE
+            <div class="col fs-4" style="display: flex; align-items: center; justify-content: center; min-height: 200px;">
+              {{ graph_html|safe }}
             </div>
           </div>
-          <div class="row">
-            <div class="col fs-4" style="display: flex; align-items: center">
+          <div class="row mt-4">
+            <div class="col fs-4 stat-label" style="display: flex; align-items: center">
               Summary
             </div>
           </div>
-          <div class="row" style="max-height: 230px; overflow-y: auto">
+          <div class="row mb-3">
             <div class="col fs-4" style="display: flex; align-items: center">
-              <table
-                class="table table-bordered table-hover"
-                id="portfolio-table"
-              >
+              <table class="table table-bordered table-hover" id="portfolio-table">
                 <thead>
                   <tr>
-                    <th class="text-white" style="background-color: #32746d">
-                      Symbol
-                    </th>
-                    <th class="text-white" style="background-color: #32746d">
-                      Price
-                    </th>
-                    <th class="text-white" style="background-color: #32746d">
-                      Change (%)
-                    </th>
-                    <th class="text-white" style="background-color: #32746d">
-                      Currency
-                    </th>
-                    <th class="text-white" style="background-color: #32746d">
-                      Shares
-                    </th>
+                    <th class="text-white">Symbol</th>
+                    <th class="text-white">Price</th>
+                    <th class="text-white">Change (%)</th>
+                    <th class="text-white">Currency</th>
+                    <th class="text-white">Quantity</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -64,7 +34,7 @@
                     <td>{{stock.price}}</td>
                     <td>{{stock.change}}</td>
                     <td>${{stock.currency}}</td>
-                    <td>${{stock.shares}}</td>
+                    <td>{{stock.shares}}</td>
                   </tr>
                   {% else %}
                   <tr>
@@ -83,72 +53,43 @@
       </div>
     </div>
     <div class="col col-lg-5">
-      <h3 class="m-1 mt-3 mb-2">Spending</h3>
-      <div
-        style="
-          height: 85%;
-          background-color: #ffffff;
-          border-radius: 30px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 30px;
-        "
-      >
+      <h3 class="m-1 mt-3 mb-2 text-white" style="font-weight: bold;">Spending</h3>
+      <div class="content-card" style="height: 85%; display: flex; align-items: center; justify-content: center; padding: 30px;">
         <div class="container h-100">
-          <div class="row">
-            <div class="col fs-4" style="display: flex; align-items: center">
+          <div class="row financial-stat">
+            <div class="col fs-4 stat-label" style="display: flex; align-items: center">
               Cash
             </div>
-            <div
-              class="col fs-4"
-              style="display: flex; align-items: center; justify-content: right"
-            >
+            <div class="col fs-4 stat-value" style="display: flex; align-items: center; justify-content: right">
               $100
             </div>
           </div>
-          <div class="row">
-            <div class="col fs-4" style="display: flex; align-items: center">
+          <div class="row financial-stat">
+            <div class="col fs-4 stat-label" style="display: flex; align-items: center">
               Money In
             </div>
-            <div
-              class="col fs-4"
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: right;
-                color: #008b2e;
-              "
-            >
+            <div class="col fs-4 stat-value money-in" style="display: flex; align-items: center; justify-content: right">
               $100
             </div>
           </div>
-          <div class="row mb-3">
-            <div class="col fs-4" style="display: flex; align-items: center">
+          <div class="row financial-stat mb-3">
+            <div class="col fs-4 stat-label" style="display: flex; align-items: center">
               Money Out
             </div>
-            <div
-              class="col fs-4"
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: right;
-                color: #de0101;
-              "
-            >
+            <div class="col fs-4 stat-value money-out" style="display: flex; align-items: center; justify-content: right">
               $100
             </div>
           </div>
           <div class="row">
-            <div class="col fs-4" style="display: flex; align-items: center">
+            <div class="col fs-4 stat-label" style="display: flex; align-items: center">
               Recent Transactions
             </div>
           </div>
           <div class="row overflow-y-auto" style="max-height: 280px">
             <div>
               {% for transaction in transactions %}
-              <div class="col fs-4 rounded mb-2 transaction-entry" style="display: flex; align-items: center; background-color: #104F55; color:white; padding-left: 20px">
-              {{transaction.description}} - {{transaction.amount}}
+              <div class="col fs-4 rounded mb-2 transaction-entry">
+                {{transaction.description}} - {{transaction.amount}}
               </div>
               {% else %}
               <div class="fs-6 bold mt-2" style="align-items: center; justify-content: center; color: #989898;">No recent transactions</div>
@@ -161,83 +102,40 @@
   </div>
   <div class="row">
     <div class="col">
-      <h3 class="m-1">Tips</h3>
-      <div
-        style="
-          height: 85%;
-          background-color: #ffffff;
-          border-radius: 30px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 30px;
-        "
-      >
-        <div class="comtainer w-100" style="padding: 10px">
-          <div class="row">
-            <div class="col fs-4" style="display: flex; align-items: center">
+      <h3 class="m-1 mt-3 text-white" style="font-weight: bold;">Tips</h3>
+      <div class="content-card tips-card" style="height: 85%; display: flex; align-items: center; justify-content: center; padding: 30px;">
+        <div class="container w-100" style="padding: 10px">
+          <div class="row financial-stat">
+            <div class="col fs-4 stat-label" style="display: flex; align-items: center">
               Minimum IRA Contribution
             </div>
-            <div
-              class="col fs-4"
-              style="display: flex; align-items: center; justify-content: right"
-            >
+            <div class="col fs-4 stat-value" style="display: flex; align-items: center; justify-content: right">
               $6,500
             </div>
           </div>
-          <div class="row mb-2">
-            <div class="col fs-4" style="display: flex; align-items: center">
+          <div class="row financial-stat mb-2">
+            <div class="col fs-4 stat-label" style="display: flex; align-items: center">
               2025 Contributions
             </div>
-            <div
-              class="col fs-4"
-              style="display: flex; align-items: center; justify-content: right"
-            >
+            <div class="col fs-4 stat-value" style="display: flex; align-items: center; justify-content: right">
               $2,000
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <div
-                class="pr-10 container"
-                style="
-                  background-color: #f5f5f5;
-                  border-radius: 15px;
-                  padding: 15px;
-                "
-              >
-                <div
-                  class="col fs-4"
-                  style="display: flex; align-items: center; padding-left: 10px"
-                >
+              <div class="pr-10 container recommendations-container" style="padding: 15px;">
+                <div class="col fs-4 stat-label" style="display: flex; align-items: center; padding-left: 10px">
                   Recommendations
                 </div>
                 <div class="container">
                   <div class="row">
                     <div class="col-1 d-none d-lg-flex">
-                      <p
-                        class="rounded-circle fs-2 d-flex"
-                        style="
-                          background-color: #005a83;
-                          width: 60px;
-                          height: 60px;
-                          justify-content: center;
-                          align-items: center;
-                        "
-                      >
+                      <div class="recommendation-avatar">
                         🐷
-                      </p>
+                      </div>
                     </div>
-                    <div
-                      class="col rounded p-2 overflow-y-auto"
-                      style="
-                        background-color: #daf3ff;
-                        height: auto;
-                        max-height: 200px;
-                      "
-                    >
-                      I will give you recommendations on how to save money and
-                      invest wisely!<br />
+                    <div class="col rounded p-2 overflow-y-auto recommendation-text" style="height: auto; max-height: 200px;">
+                      I will give you recommendations on how to save money and invest wisely!<br />
                       invest wisely!<br />
                       invest wisely!<br />
                       invest wisely!<br />
