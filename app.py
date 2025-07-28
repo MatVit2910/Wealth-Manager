@@ -2,7 +2,6 @@ from flask import Flask, render_template
 import plotly.graph_objects as go
 import plotly.offline as pyo
 import pandas as pd
-from datetime import datetime, timedelta
 
 from alpaca.trading.client import TradingClient
 from alpaca.data.historical import StockHistoricalDataClient
